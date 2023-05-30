@@ -8,7 +8,7 @@ Your AI handy assistant
 
 
 # TODO
-1、~~优化~~  
+1、UI优化  
 2、加入图片生成   
 
 
