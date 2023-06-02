@@ -2,6 +2,9 @@
 Your AI handy assistant
 
 # 注意
+！！需要旧版本删除重装！！
+
+# 注意
 1、session模式，支持Bing、Poe、Bard的AI聊天  
 2、api-key模式，支持OpenAI聊天  
 3、语音输入使用了华为的机器学习api  
