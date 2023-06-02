@@ -2,7 +2,7 @@
 Your AI handy assistant
 
 # 注意
-！！需要旧版本删除重装！！
+！！如果有安装过旧版本，请先删除之后重新安装！！
 
 # 注意
 1、session模式，支持Bing、Poe、Bard的AI聊天  
