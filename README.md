@@ -12,7 +12,7 @@ Your AI handy assistant
 2、api-key模式，支持OpenAI聊天  
 - [配置说明](https://github.com/zhayujie/bot-on-anything) 获取session以及api-key参考这里  
 
-3、直连各平台服务器，没有经过任何中转，因此需要你自己解决网络环境
+3、直连各平台服务器，没有经过任何中转，因此需要你自己解决网络环境  
 4、语音输入使用了华为的机器学习api  
 5、所有敏感数据都在本地，没有连接其他服务    
 6、开发中，有建议欢迎提issue  
