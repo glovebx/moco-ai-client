@@ -22,6 +22,9 @@ Your AI handy assistant
 1、UI优化  
 2、~~加入图片生成~~   
 
+# 2023.06.05
+1、加入Bing的文字转语音功能
+
 # 2023.06.03
 1、加入公开的免费节点[aiassist](https://github.com/xtekky/gpt4free/tree/main/gpt4free/aiassist)，普通网络可用。聊天窗口请勿发送敏感数据，否则后果自负
 
