@@ -1,6 +1,17 @@
 # moco-ai-client
 Your AI handy assistant
 
+## 截屏
+
+| Chat     | Profile     | 
+| :-------------: | :-------------: | 
+| ![Chat](screenshots/chat.jpeg) | ![Profile](screenshots/profile.jpeg) | 
+| Voice input     | TTS     | 
+| :-------------: | :-------------: | 
+| ![Voice-input](screenshots/voice-input.jpeg) | ![TTS](screenshots/tts.jpeg) | 
+
+
+
 # 注意
 ！！仅供交流探讨，禁止用于非法用途，有任何法律后果请自行承担！！
 
