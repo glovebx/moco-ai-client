@@ -20,6 +20,8 @@ Your AI handy assistant
 | ![Chat](screenshots/chat.jpeg) | ![Profile](screenshots/profile.jpeg) | 
 | Voice input     | TTS     | 
 | ![Voice-input](screenshots/voice-input.jpeg) | ![TTS](screenshots/tts.jpeg) | 
+| Dark theme     |
+| ![Dark-theme](screenshots/dark-theme.jpeg) |
 
 
 
