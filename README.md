@@ -1,6 +1,16 @@
 # moco-ai-client
 Your AI handy assistant
 
+## 特性
+:white_check_mark:  支持微软New Bing聊天和图像创作，仅需_U字符串即可，不需要api-key <br/>
+:white_check_mark:  支持谷歌Bard，仅需__Secure-1PSID字符串，不需要api-key <br/>
+:white_check_mark:  支持Poe，仅需m-b字符串，不需要api-key <br/>
+:white_check_mark:  支持ChatGPT聊天和图像创作，需要你自己的api-key <br/>
+:white_check_mark:  支持国内网络环境用GPT3.5，打开即可使用，无需注册！:heart: :heart: <br/>
+:white_check_mark:  支持中英文连续语音输入，破除60s限制 <br/>
+:white_check_mark:  支持中文、英文、日文的文字转语音，对接微软的AI语音平台 <br/>
+
+
 ## 截屏
 
 | Chat     | Profile     | 
