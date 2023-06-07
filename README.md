@@ -2,6 +2,8 @@
 Your AI handy assistant
 
 ## 特性
+:white_check_mark:  不需要等待回答，可以连续发指令 <br/>
+:white_check_mark:  对话历史保存在本地，保护你的隐私。注意聊天窗口不要提交隐私数据！！ <br/>
 :white_check_mark:  支持微软New Bing聊天和图像创作，仅需_U字符串即可，不需要api-key <br/>
 :white_check_mark:  支持谷歌Bard，仅需__Secure-1PSID字符串，不需要api-key <br/>
 :white_check_mark:  支持Poe，仅需m-b字符串，不需要api-key <br/>
