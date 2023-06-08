@@ -10,7 +10,7 @@ Your AI handy assistant
 :white_check_mark:  支持ChatGPT聊天和图像创作，需要你自己的api-key <br/>
 :white_check_mark:  支持国内网络环境用GPT3.5，打开即可使用，无需注册！:heart: :heart: <br/>
 :white_check_mark:  支持中英文连续语音输入，破除60s限制 <br/>
-:white_check_mark:  支持中文、英文、日文的文字转语音，对接微软的AI语音平台 <br/>
+:white_check_mark:  对接微软的AI语音，支持中文、英文、日文、法语、德语、西班牙语、韩文、泰语的文字转语音 <br/>
 
 
 ## 截屏
@@ -45,6 +45,9 @@ Your AI handy assistant
 # TODO
 1、UI优化  
 2、~~加入图片生成~~   
+
+# 2023.06.08
+1、TTS bug fix
 
 # 2023.06.07
 1、支持中、英、日三国语言的朗读
