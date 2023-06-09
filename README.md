@@ -21,7 +21,7 @@ Your AI handy assistant
 | Voice input     | TTS     | 
 | ![Voice-input](screenshots/voice-input.jpeg) | ![TTS](screenshots/tts.jpeg) | 
 | Dark theme     | Scan to Download Apk  | 
-| ![Dark-theme](screenshots/dark-theme.jpeg) | ![APK](screenshots/moco-ai-client-qrcode.png) | 
+| ![Dark-theme](screenshots/dark-theme.jpeg) | ![APK](screenshots/moco-ai-apk.png) | 
 
 
 
