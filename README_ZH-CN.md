@@ -46,6 +46,9 @@ Your AI handy assistant
 1、UI优化  
 2、~~加入图片生成~~   
 
+# 2023.06.10
+1、Poe加入GPT-4 bot
+
 # 2023.06.09
 1、Bard支持中文
 

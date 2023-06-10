@@ -49,6 +49,9 @@ Your AI handy assistant
 1、UI optimization  
 2、~~Add image generation~~   
 
+# 2023.06.10
+1、Poe with GPT-4 bot
+
 # 2023.06.09
 1、Bard supports Chinese
 
