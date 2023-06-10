@@ -1,6 +1,9 @@
 # moco-ai-client
 Your AI handy assistant
 
+
+[日本語](README_JA-JP.md) | [简体中文](README_ZH-CN.md)
+
 ## Features
 :white_check_mark: No need to wait for answers, you can send prompts continuously <br/>
 :white_check_mark: Conversation history is saved locally, protecting your privacy. Be careful not to submit private data in the chat window!! <br/>
