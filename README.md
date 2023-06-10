@@ -1,5 +1,5 @@
 # moco-ai-client
-Your AI handy assistant
+Your handy AI assistant
 
 
 [日本語](README_JA-JP.md) | [简体中文](README_ZH-CN.md)
