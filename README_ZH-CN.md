@@ -1,5 +1,5 @@
 # moco-ai-client
-Your AI handy assistant
+Your handy AI assistant
 
 ## 特性
 :white_check_mark:  不需要等待回答，可以连续发指令 <br/>
