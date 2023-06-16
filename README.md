@@ -49,6 +49,9 @@ Your handy AI assistant
 1、UI optimization  
 2、~~Add image generation~~   
 
+# 2023.06.16
+1、Replace the invalid FREE nodes, note that they are third-party nodes, do not send sensitive data in the chat window, otherwise you will be responsible for the consequences
+
 # 2023.06.10
 1、Poe with GPT-4 bot
 
