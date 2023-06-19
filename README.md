@@ -52,7 +52,7 @@ Your handy AI assistant
 2、~~Add image generation~~   
 
 # 2023.06.19
-1、Select the text, share it to a third-party app
+1、Select the text, share it to a third-party app  
 2、Images can be downloaded to the album, can be shared to a third-party app
 
 # 2023.06.16
