@@ -23,6 +23,8 @@ Your handy AI assistant
 | ![Chat](screenshots/chat.jpeg) | ![Profile](screenshots/profile.jpeg) | 
 | Voice input     | TTS     | 
 | ![Voice-input](screenshots/voice-input.jpeg) | ![TTS](screenshots/tts.jpeg) | 
+| Share content     | Download image     | 
+| ![Voice-input](screenshots/share-content.jpeg) | ![TTS](screenshots/download-image.jpeg) | 
 | Dark theme     | Scan to Download Apk  | 
 | ![Dark-theme](screenshots/dark-theme.jpeg) | ![APK](screenshots/moco-ai-apk.png) | 
 
@@ -48,6 +50,10 @@ Your handy AI assistant
 # TODO
 1、UI optimization  
 2、~~Add image generation~~   
+
+# 2023.06.19
+1、Select the text, share it to a third-party app
+2、Images can be downloaded to the album, can be shared to a third-party app
 
 # 2023.06.16
 1、Replace the invalid FREE nodes, note that they are third-party nodes, do not send sensitive data in the chat window, otherwise you will be responsible for the consequences

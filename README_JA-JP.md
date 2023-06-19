@@ -20,6 +20,8 @@
 | ![Chat](screenshots/chat.jpeg) | ![Profile](screenshots/profile.jpeg) | 
 | Voice input     | TTS     | 
 | ![Voice-input](screenshots/voice-input.jpeg) | ![TTS](screenshots/tts.jpeg) | 
+| Share content     | Download image     | 
+| ![Voice-input](screenshots/share-content.jpeg) | ![TTS](screenshots/download-image.jpeg) | 
 | Dark theme     | Scan to Download Apk  | 
 | ![Dark-theme](screenshots/dark-theme.jpeg) | ![APK](screenshots/moco-ai-apk.png) | 
 
