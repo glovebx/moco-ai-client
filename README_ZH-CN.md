@@ -20,6 +20,8 @@ Your handy AI assistant
 | ![Chat](screenshots/chat.jpeg) | ![Profile](screenshots/profile.jpeg) | 
 | Voice input     | TTS     | 
 | ![Voice-input](screenshots/voice-input.jpeg) | ![TTS](screenshots/tts.jpeg) | 
+| Share content     | Download image     | 
+| ![Voice-input](screenshots/share-content.jpeg) | ![TTS](screenshots/download-image.jpeg) | 
 | Dark theme     | Scan to Download Apk  | 
 | ![Dark-theme](screenshots/dark-theme.jpeg) | ![APK](screenshots/moco-ai-apk.png) | 
 
@@ -45,6 +47,10 @@ Your handy AI assistant
 # TODO
 1、UI优化  
 2、~~加入图片生成~~   
+
+# 2023.06.19
+1、选中文字，分享到第三方App
+2、图片可下载到相册、可分享到第三方App
 
 # 2023.06.16
 1、替换无效的FREE节点，注意是第三方节点，聊天窗口请勿发送敏感数据，否则后果自负
