@@ -51,6 +51,9 @@ Your handy AI assistant
 1、UI optimization  
 2、~~Add image generation~~   
 
+# 2023.06.23
+1、Add a free claude node
+
 # 2023.06.19
 1、Select the text, share it to a third-party app  
 2、Images can be downloaded to the album, can be shared to a third-party app
