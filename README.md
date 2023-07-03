@@ -26,7 +26,7 @@ Your handy AI assistant
 | Share content     | Download image     | 
 | ![Voice-input](screenshots/share-content.jpeg) | ![TTS](screenshots/download-image.jpeg) | 
 | Dark theme     | Scan to Download Apk  | 
-| ![Dark-theme](screenshots/dark-theme.jpeg) | ![APK](screenshots/moco-ai-apk-new.png) | 
+| ![Dark-theme](screenshots/dark-theme.jpeg) | ![APK](screenshots/moco-ai-apk.png) | 
 
 
 
