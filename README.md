@@ -51,6 +51,9 @@ Your handy AI assistant
 1、UI optimization  
 2、~~Add image generation~~   
 
+# 2024.01.20
+1、Add two gpt3.5 nodes
+
 # 2023.06.23
 1、Add a free claude node
 
