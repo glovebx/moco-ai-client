@@ -51,6 +51,9 @@ Your handy AI assistant
 1、UI optimization  
 2、~~Add image generation~~   
 
+# 2024.01.31
+1、Add lepton
+
 # 2024.01.20
 1、Add two gpt3.5 nodes
 
