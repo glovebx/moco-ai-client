@@ -51,6 +51,9 @@ Your handy AI assistant
 1、UI optimization  
 2、~~Add image generation~~   
 
+# 2024.02.01
+1、Bug fix
+
 # 2024.01.31
 1、Add lepton
 

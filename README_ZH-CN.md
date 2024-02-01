@@ -48,6 +48,9 @@ Your handy AI assistant
 1、UI优化  
 2、~~加入图片生成~~   
 
+# 2024.02.01
+1、Bug fix
+
 # 2024.01.31
 1、增加Lepton，目前可用
 
