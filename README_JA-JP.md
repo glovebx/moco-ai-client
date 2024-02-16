@@ -4,9 +4,10 @@
 ## 特徴
 :white_check_mark: 回答を待つ必要がなく、連続してコマンドを送ることができます <br/>
 :white_check_mark: 会話履歴はローカルに保存され、あなたのプライバシーを守ります。チャットウィンドウにプライベートデータを送信しないでください！！ <br/>
-:white_check_mark: Microsoft New Bingのチャットと画像作成をサポートし、_U文字列だけで済みます。api-keyは必要ありません <br/>
-:white_check_mark: Google Bardをサポートし、__Secure-1PSID文字列だけで済みます。api-keyは必要ありません <br/>
-:white_check_mark: Poeをサポートし、m-b文字列だけで済みます。api-keyは必要ありません <br/>
+:white_check_mark: ~~Microsoft New Bingのチャットと画像作成をサポートし、_U文字列だけで済みます。api-keyは必要ありません~~ <br/>
+:white_check_mark: ~~Google Bardをサポートし、__Secure-1PSID文字列だけで済みます。api-keyは必要ありません~~ <br/>
+:white_check_mark: ~~Poeをサポートし、m-b文字列だけで済みます。api-keyは必要ありません~~ <br/>
+:white_check_mark: Google Geminiをサポートし、あなた自身のapi-keyが必要です <br/>
 :white_check_mark: ChatGPTのチャットと画像作成をサポートし、あなた自身のapi-keyが必要です <br/>
 :white_check_mark: 国内ネットワーク環境でGPT3.5をサポートし、開いてすぐに使えます。登録不要！:heart: :heart: <br/>
 :white_check_mark: 中国語と英語の連続音声入力をサポートし、60秒の制限を破ります <br/>
@@ -34,19 +35,21 @@
 !! 古いバージョンをインストールしている場合は、削除してから再インストールしてください！！
 
 # 注意
-1、sessionモードでは、Bing、Poe、BardのAIチャットがサポートされています  
+1、~~sessionモードでは、Bing、Poe、BardのAIチャットがサポートされています~~  
 2、api-keyモードでは、OpenAIチャットがサポートされています  
 - [設定方法](https://github.com/zhayujie/bot-on-anything) sessionやapi-keyの取得方法はこちらを参照してください  
 
-3、各プラットフォームのサーバーに直接接続しており、中継は一切行っていませんので、ネットワーク環境は自分で解決する必要があります  
-4、音声入力にはHuaweiの機械学習APIを使用しています  
-5、すべての機密データはローカルにあり、他のサービスに接続していません    
-6、開発中ですので、ご意見・ご要望がありましたら、issueを立ててください  
+3、音声入力にはHuaweiの機械学習APIを使用しています  
+4、すべての機密データはローカルにあり、他のサービスに接続していません    
+5、開発中ですので、ご意見・ご要望がありましたら、issueを立ててください  
 
 
 # TODO
 1、UIの最適化  
 2、~~画像生成を追加~~   
+
+# 2024.02.15
+1、Add Gemini
 
 # 2024.02.01
 1、Bug fix
