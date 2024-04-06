@@ -51,6 +51,9 @@ Your handy AI assistant
 1、UI optimization  
 2、~~Add image generation~~   
 
+# 2024.04.05
+1、Add custom role settings
+
 # 2024.02.15
 1、Add Gemini
 

@@ -9,7 +9,7 @@
 :white_check_mark: ~~Poeをサポートし、m-b文字列だけで済みます。api-keyは必要ありません~~ <br/>
 :white_check_mark: Google Geminiをサポートし、あなた自身のapi-keyが必要です <br/>
 :white_check_mark: ChatGPTのチャットと画像作成をサポートし、あなた自身のapi-keyが必要です <br/>
-:white_check_mark: 国内ネットワーク環境でGPT3.5をサポートし、開いてすぐに使えます。登録不要！:heart: :heart: <br/>
+:white_check_mark: GPT3.5をサポートし、開いてすぐに使えます。登録不要！:heart: :heart: <br/>
 :white_check_mark: 中国語と英語の連続音声入力をサポートし、60秒の制限を破ります <br/>
 :white_check_mark: MicrosoftのAI音声に接続し、中国語、英語、日本語、フランス語、ドイツ語、スペイン語、韓国語、タイ語のテキストから音声への変換をサポートします <br/>
 
@@ -47,6 +47,9 @@
 # TODO
 1、UIの最適化  
 2、~~画像生成を追加~~   
+
+# 2024.04.05
+1、カスタムロールの設定を追加
 
 # 2024.02.15
 1、Add Gemini

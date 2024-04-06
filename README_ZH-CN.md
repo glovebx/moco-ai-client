@@ -48,6 +48,9 @@ Your handy AI assistant
 1、UI优化  
 2、~~加入图片生成~~  
 
+# 2024.04.05
+1、增加自定义角色设置
+
 # 2024.02.15
 1、增加 Gemini，需要自己申请API Key
 
