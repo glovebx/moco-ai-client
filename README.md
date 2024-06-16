@@ -51,6 +51,9 @@ Your handy AI assistant
 1、UI optimization  
 2、~~Add image generation~~   
 
+# 2024.06.16
+1、DEV node bug fix
+
 # 2024.04.05
 1、Add custom role settings
 

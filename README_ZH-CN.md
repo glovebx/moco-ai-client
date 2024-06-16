@@ -48,6 +48,9 @@ Your handy AI assistant
 1、UI优化  
 2、~~加入图片生成~~  
 
+# 2024.06.16
+1、DEV node bug fix
+
 # 2024.04.05
 1、增加自定义角色设置
 
