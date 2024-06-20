@@ -51,6 +51,9 @@ Your handy AI assistant
 1、UI optimization  
 2、~~Add image generation~~   
 
+# 2024.06.19
+1、Supports streaming output for Dev nodes, Google Gemini, and GPT
+
 # 2024.06.16
 1、DEV node bug fix
 
