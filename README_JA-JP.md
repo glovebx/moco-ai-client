@@ -48,6 +48,9 @@
 1、UIの最適化  
 2、~~画像生成を追加~~   
 
+# 2024.06.24
+1、Streaming output bug fix
+
 # 2024.06.19
 1、Devノード、Google Gemini、およびGPTのストリーミング出力をサポートする
 

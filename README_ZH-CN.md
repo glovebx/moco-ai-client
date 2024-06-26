@@ -48,6 +48,9 @@ Your handy AI assistant
 1、UI优化  
 2、~~加入图片生成~~  
 
+# 2024.06.24
+1、Streaming output bug fix
+
 # 2024.06.19
 1、支持Dev节点、Google Gemini、GPT（包括自定义地址）的流式输出
 
