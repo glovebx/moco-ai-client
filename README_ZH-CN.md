@@ -48,6 +48,9 @@ Your handy AI assistant
 1、UI优化  
 2、~~加入图片生成~~  
 
+# 2025.02.25
+1、支持 DeepSeek  
+
 # 2024.06.24
 1、Streaming output bug fix
 

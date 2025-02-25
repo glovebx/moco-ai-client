@@ -48,6 +48,9 @@
 1、UIの最適化  
 2、~~画像生成を追加~~   
 
+# 2025.02.25
+1、Supports DeepSeek  
+
 # 2024.06.24
 1、Streaming output bug fix
 
