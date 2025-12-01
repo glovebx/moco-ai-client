@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Meta Tags -->
+    <title>Moco AI - 下一代移动端智能中枢</title>
+    <meta name="description" content="Moco AI 将 Gemini, DeepSeek, 豆包, 即梦 等顶尖大模型装进你的手机。极速响应、语音对话、视觉识别，重新定义移动端智能体验。">
+    <meta name="keywords" content="AI Client, Gemini, Mobile AI, DeepSeek, 豆包, 即梦, 人工智能助手, 移动端AI">
+    <meta name="author" content="MetaERP.ai">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moco.ai/">
+    <meta property="og:title" content="Moco AI - 口袋里的超级大脑">
+    <meta property="og:description" content="极简、强大的移动端 AI 客户端。支持多模型切换与本地数据隐私保护。">
+    <meta property="og:image" content="https://api.dicebear.com/7.x/shapes/png?seed=MocoAI&backgroundColor=000000">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Moco AI - 你的随身智能中枢">
+    <meta property="twitter:description" content="随时随地连接最强 AI 模型。">
+
+    <!-- Base64 Favicon (闪电图标) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+    <!-- Tailwind CSS (使用生产级 CDN 配置) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'Noto Sans SC', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#050505',
+                        brand: {
+                            cyan: '#22d3ee',
+                            purple: '#c084fc',
+                            bg: '#0A0A0A'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'gradient-x': 'gradient-x 15s ease infinite',
+                        'chat-slide': 'chatSlide 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'gradient-x': {
+                            '0%, 100%': { backgroundPosition: 'left center' },
+                            '50%': { backgroundPosition: 'right center' },
+                        },
+                        chatSlide: {
+                            '0%': { opacity: '0', transform: 'translateY(20px) scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome & Bunny Fonts (Global Alternative to Google Fonts) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=outfit:300,400,500,700|noto-sans-sc:300,400,500,700" rel="stylesheet" />
+    
+    <style>
+        body {
+            background-color: #050505;
+            color: white;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* 滚动条美化 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0C15;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* 渐变文字 */
+        .text-gradient {
+            background: linear-gradient(to right, #22d3ee, #e879f9, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradient-x 5s linear infinite;
+        }
+
+        /* 手机模型 */
+        .phone-frame {
+            border: 8px solid #2a2a2a;
+            border-radius: 44px; /* 增加圆角以匹配现代手机 */
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 50px -10px rgba(0,0,0,0.5), inset 0 0 20px rgba(0,0,0,0.8);
+            background: #000;
+            transform: translateZ(0); /* 开启硬件加速 */
+        }
+        /* 灵动岛/刘海区域 */
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 28px;
+            background: #1a1a1a;
+            border-bottom-left-radius: 18px;
+            border-bottom-right-radius: 18px;
+            z-index: 50;
+        }
+        /* 屏幕反光 */
+        .screen-glare {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.04) 45%, transparent 50%);
+            pointer-events: none;
+            z-index: 40;
+        }
+
+        /* 玻璃拟态卡片 */
+        .glass-card {
+            background: rgba(20, 20, 25, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            background: rgba(30, 30, 40, 0.7);
+        }
+
+        /* 背景网格 */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at center, black 30%, transparent 100%);
+        }
+
+        /* 聊天气泡动画 */
+        .chat-bubble {
+            opacity: 0;
+            animation: chatSlide 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* 3D 透视容器 */
+        .perspective-container {
+            perspective: 1000px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-purple-500 selection:text-white">
+
+    <!-- 导航栏 -->
+    <nav class="fixed w-full z-50 top-0 backdrop-blur-xl bg-black/60 border-b border-white/5 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 flex items-center justify-center shadow-lg shadow-purple-500/20">
+                    <i class="fa-solid fa-bolt text-white text-sm"></i>
+                </div>
+                <span class="font-bold text-xl tracking-wide text-white">Moco<span class="text-purple-400">.AI</span></span>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-400">
+                <a href="#features" class="hover:text-white transition-colors duration-200">功能特性</a>
+                <a href="#scenarios" class="hover:text-white transition-colors duration-200">应用场景</a>
+                <a href="https://github.com/glovebx/moco-ai-client" target="_blank" class="hover:text-white transition-colors duration-200">GitHub</a>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="https://github.com/glovebx/moco-ai-client" class="px-5 py-2 rounded-full bg-white text-black text-sm font-bold hover:bg-gray-200 transition-all duration-200 shadow-[0_0_15px_rgba(255,255,255,0.2)] hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] flex items-center gap-2">
+                <span>下载 App</span>
+                <i class="fa-solid fa-arrow-down text-xs"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero 区域 -->
+    <section class="relative min-h-screen pt-28 pb-20 flex flex-col md:flex-row items-center justify-center max-w-7xl mx-auto px-6 overflow-hidden">
+        <!-- 背景光效 -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-purple-600/15 rounded-full blur-[120px] animate-pulse-slow"></div>
+            <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[100px]"></div>
+            <div class="absolute inset-0 bg-grid opacity-50"></div>
+        </div>
+
+        <!-- 左侧文本内容 -->
+        <div class="relative z-10 w-full md:w-1/2 text-center md:text-left mb-16 md:mb-0 md:pr-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-md shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-default">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span class="text-xs text-gray-200 font-medium tracking-wide">For Android Only</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] mb-6 tracking-tight">
+                口袋里的<br>
+                <span class="text-gradient">超级大脑</span>
+            </h1>
+            
+            <p class="text-lg text-gray-400 mb-10 max-w-lg mx-auto md:mx-0 leading-relaxed">
+                Moco AI 将 Gemini、DeepSeek 等顶尖大模型装进你的手机。
+                极速响应、语音对话、视觉识别，重新定义移动端智能体验。
+            </p>
+            
+            <!-- 下载按钮组 -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+ <!--                <button class="flex items-center justify-center gap-3 px-6 py-3.5 bg-white text-black rounded-xl hover:bg-gray-100 transition-all hover:scale-[1.02] active:scale-95 shadow-xl group w-full sm:w-auto">
+                    <i class="fa-brands fa-apple text-3xl group-hover:text-black/80 transition-colors"></i>
+                    <div class="text-left leading-tight">
+                        <div class="text-[10px] font-semibold text-gray-500 uppercase tracking-wider">Download on the</div>
+                        <div class="text-base font-bold font-sans">App Store</div>
+                    </div>
+                </button> -->
+                <a href="https://github.com/glovebx/moco-ai-client" target="_blank" class="block w-full sm:w-auto">
+                    <button class="flex items-center justify-center gap-3 px-6 py-3.5 bg-[#1a1a1a] border border-white/10 text-white rounded-xl hover:bg-[#252525] transition-all hover:scale-[1.02] active:scale-95 shadow-xl group w-full sm:w-auto">
+                        <i class="fa-brands fa-google-play text-2xl text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-green-600"></i>
+                        <div class="text-left leading-tight">
+                            <div class="text-[10px] font-semibold text-gray-400 uppercase tracking-wider">GET IT ON</div>
+                            <div class="text-base font-bold font-sans">Github</div>
+                        </div>
+                    </button>
+                </a>
+            </div>
+            
+            <!-- 用户证明 -->
+            <div class="mt-10 flex items-center justify-center md:justify-start gap-4 text-sm text-gray-500">
+                <div class="flex -space-x-3">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" class="w-9 h-9 rounded-full border-2 border-black bg-gray-800" alt="User">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka" class="w-9 h-9 rounded-full border-2 border-black bg-gray-800" alt="User">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Moco" class="w-9 h-9 rounded-full border-2 border-black bg-gray-800" alt="User">
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex text-yellow-500 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="text-xs mt-0.5">已有 10,000+ 极客用户加入</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧：手机演示模型 -->
+        <div class="w-full md:w-1/2 flex justify-center perspective-container relative z-20">
+            <!-- 主手机 -->
+            <div class="phone-frame w-[320px] h-[650px] bg-black animate-float relative shadow-2xl z-20 mx-auto">
+                <div class="screen-glare"></div>
+                <!-- 手机内部 UI -->
+                <div class="h-full w-full bg-[#0a0a0c] flex flex-col relative overflow-hidden">
+                    <!-- 状态栏模拟 -->
+                    <div class="h-12 flex justify-between items-center px-7 pt-3 text-white/70 text-[10px] font-medium">
+                        <span>9:41</span>
+                        <div class="flex gap-1.5">
+                            <i class="fa-solid fa-signal"></i>
+                            <i class="fa-solid fa-wifi"></i>
+                            <i class="fa-solid fa-battery-full text-lg -mt-0.5"></i>
+                        </div>
+                    </div>
+
+                    <!-- App Header -->
+                    <div class="px-5 py-3 flex justify-between items-center bg-black/20 backdrop-blur-sm z-10">
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <i class="fa-solid fa-bars text-white/70 text-sm"></i>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <span class="font-bold text-sm tracking-wide">Moco AI</span>
+                            <span class="text-[10px] text-green-400 flex items-center gap-1"><span class="w-1 h-1 rounded-full bg-green-400"></span>Online</span>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <i class="fa-solid fa-plus text-cyan-400 text-sm"></i>
+                        </div>
+                    </div>
+
+                    <!-- 聊天区域 -->
+                    <div class="flex-1 p-4 flex flex-col gap-5 overflow-y-auto no-scrollbar mask-image-gradient">
+                        
+                        <!-- AI 欢迎语 -->
+                        <div class="self-center my-4 text-xs text-gray-600 bg-white/5 px-3 py-1 rounded-full">Today, 9:41 AM</div>
+
+                        <!-- 用户提问 -->
+                        <div class="self-end max-w-[85%] chat-bubble" style="animation-delay: 0.2s;">
+                            <div class="bg-gradient-to-br from-[#7C3AED] to-[#2563EB] text-white p-3.5 rounded-[20px] rounded-tr-[4px] text-sm shadow-lg leading-relaxed">
+                                如何用 Python 快速合并文件夹里的多个 Excel 表格？
+                            </div>
+                        </div>
+
+                        <!-- AI 回答 -->
+                        <div class="self-start max-w-[90%] flex gap-3 chat-bubble" style="animation-delay: 1.2s;">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center shrink-0 mt-1 shadow-lg shadow-cyan-500/20">
+                                <i class="fa-solid fa-bolt text-xs text-white"></i>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <div class="bg-[#1c1c1e] text-gray-100 p-4 rounded-[20px] rounded-tl-[4px] text-sm border border-white/5 shadow-md">
+                                    <p class="mb-3 text-gray-300">可以使用 <code class="text-pink-400 bg-pink-400/10 px-1 rounded">pandas</code> 库。这是最简洁的写法：</p>
+                                    <div class="bg-black/60 p-3 rounded-lg text-xs font-mono text-cyan-300 border border-white/5 overflow-x-auto">
+                                        <span class="text-purple-400">import</span> pandas <span class="text-purple-400">as</span> pd<br>
+                                        <span class="text-purple-400">import</span> glob<br><br>
+                                        <span class="text-gray-500"># 读取所有xlsx文件</span><br>
+                                        files = glob.glob(<span class="text-green-400">"*.xlsx"</span>)<br>
+                                        df = pd.concat((pd.read_excel(f) <span class="text-purple-400">for</span> f <span class="text-purple-400">in</span> files))
+                                    </div>
+                                </div>
+                                <!-- 操作按钮 -->
+                                <div class="flex gap-2 ml-1">
+                                    <button class="bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white px-3 py-1.5 rounded-full text-xs transition-colors"><i class="fa-regular fa-copy mr-1"></i>Copy</button>
+                                    <button class="bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white px-3 py-1.5 rounded-full text-xs transition-colors"><i class="fa-solid fa-rotate-right mr-1"></i>Regenerate</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 用户语音 -->
+                        <div class="self-end max-w-[85%] chat-bubble" style="animation-delay: 3s;">
+                            <div class="bg-gradient-to-br from-[#7C3AED] to-[#2563EB] text-white p-2.5 px-4 rounded-[20px] rounded-tr-[4px] text-sm flex items-center gap-3 shadow-lg cursor-pointer hover:brightness-110 transition-all">
+                                <i class="fa-solid fa-play text-xs"></i>
+                                <div class="flex items-center gap-1 h-4">
+                                    <div class="w-1 h-2 bg-white/70 rounded-full animate-pulse"></div>
+                                    <div class="w-1 h-4 bg-white rounded-full animate-pulse" style="animation-delay: 0.1s"></div>
+                                    <div class="w-1 h-3 bg-white/80 rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
+                                    <div class="w-1 h-5 bg-white rounded-full animate-pulse" style="animation-delay: 0.05s"></div>
+                                    <div class="w-1 h-2 bg-white/70 rounded-full animate-pulse" style="animation-delay: 0.15s"></div>
+                                </div>
+                                <span class="text-xs font-medium ml-1 opacity-90">0:04</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 输入区域 -->
+                    <div class="p-4 pt-2 bg-gradient-to-t from-black via-[#0a0a0c] to-transparent">
+                        <div class="flex items-center gap-3 bg-[#1c1c1e] p-2 pr-2 pl-3 rounded-full border border-white/10 shadow-lg backdrop-blur-md">
+                            <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer shrink-0">
+                                <i class="fa-solid fa-camera text-xs"></i>
+                            </div>
+                            <input type="text" placeholder="Ask anything..." class="bg-transparent flex-1 text-sm text-white focus:outline-none placeholder-gray-600 min-w-0">
+                            <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer shrink-0">
+                                <i class="fa-solid fa-microphone text-xs"></i>
+                            </div>
+                            <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white font-bold cursor-pointer shadow-lg hover:shadow-cyan-500/25 transition-shadow shrink-0 transform active:scale-95">
+                                <i class="fa-solid fa-arrow-up text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 装饰性背景手机 -->
+            <div class="phone-frame w-[280px] h-[580px] bg-[#111] absolute top-12 -right-16 -z-10 opacity-30 blur-[1px] animate-float-delayed rotate-12 border-gray-800 scale-90"></div>
+        </div>
+    </section>
+
+    <!-- 功能特写 -->
+    <section id="features" class="py-24 bg-[#080808] relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-cyan-400 text-xs font-bold tracking-[0.2em] uppercase bg-cyan-900/10 px-3 py-1 rounded-full border border-cyan-500/20">Powerful Features</span>
+                <h2 class="text-3xl md:text-5xl font-bold mt-6 mb-4">专为指尖设计</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">每一个细节都经过精心打磨，只为在移动端提供最流畅的 AI 体验。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Feature 1 -->
+                <div class="glass-card p-8 rounded-3xl group hover:bg-[#151515] transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-colors duration-300 ring-1 ring-white/5 group-hover:ring-purple-500/30">
+                        <i class="fa-solid fa-microphone-lines text-purple-400 text-2xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-100">语音交互</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        无需打字，像聊天一样与 AI 对话。支持实时语音转文字 (STT) 和超拟人化语音合成 (TTS)。
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass-card p-8 rounded-3xl group hover:bg-[#151515] transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition-colors duration-300 ring-1 ring-white/5 group-hover:ring-cyan-500/30">
+                        <i class="fa-solid fa-camera text-cyan-400 text-2xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-100">视觉识别</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        拍张照片，AI 立刻看懂。识别植物、解答数学题、翻译菜单，即拍即问，所见即所得。
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-card p-8 rounded-3xl group hover:bg-[#151515] transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-pink-500/10 flex items-center justify-center mb-6 group-hover:bg-pink-500/20 transition-colors duration-300 ring-1 ring-white/5 group-hover:ring-pink-500/30">
+                        <i class="fa-solid fa-cloud-arrow-down text-pink-400 text-2xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-100">本地优先</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        本地缓存对话历史，无网环境也能查看记录。
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="glass-card p-8 rounded-3xl group hover:bg-[#151515] transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-yellow-500/10 flex items-center justify-center mb-6 group-hover:bg-yellow-500/20 transition-colors duration-300 ring-1 ring-white/5 group-hover:ring-yellow-500/30">
+                        <i class="fa-solid fa-sliders text-yellow-400 text-2xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-100">模型切换</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        一个 App 集成 Gemini, DeepSeek, 豆包, 即梦以及所有ChatGPT兼容模型。根据任务需求，一键切换最合适的大模型。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 应用场景 / 数字分身 -->
+    <section id="scenarios" class="py-24 border-t border-white/5 relative overflow-hidden bg-black">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0B0C15] to-black pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-16">
+            
+            <!-- 左侧网格 -->
+            <div class="w-full md:w-1/2 grid grid-cols-2 gap-5">
+                <div class="space-y-5 md:translate-y-12">
+                    <div class="bg-[#151518] p-5 rounded-2xl border border-white/5 shadow-xl hover:bg-[#1e1e20] transition-colors group">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-yellow-500/10 flex items-center justify-center group-hover:bg-yellow-500/20 transition-colors">
+                                <i class="fa-brands fa-python text-yellow-400 text-lg"></i>
+                            </div>
+                            <span class="font-bold text-sm text-gray-200">生活助手</span>
+                        </div>
+                        <p class="text-xs text-gray-500 leading-relaxed">随时随地问询十万个为什么，普通人的移动端神器。</p>
+                    </div>
+                    <div class="bg-[#151518] p-5 rounded-2xl border border-white/5 shadow-xl hover:bg-[#1e1e20] transition-colors group">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
+                                <i class="fa-solid fa-language text-blue-400 text-lg"></i>
+                            </div>
+                            <span class="font-bold text-sm text-gray-200">随身翻译</span>
+                        </div>
+                        <p class="text-xs text-gray-500 leading-relaxed">支持多国语言实时互译，旅行商务必备。</p>
+                    </div>
+                </div>
+                <div class="space-y-5">
+                    <div class="bg-[#151518] p-5 rounded-2xl border border-white/5 shadow-xl hover:bg-[#1e1e20] transition-colors group">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-pink-500/10 flex items-center justify-center group-hover:bg-pink-500/20 transition-colors">
+                                <i class="fa-solid fa-pen-nib text-pink-400 text-lg"></i>
+                            </div>
+                            <span class="font-bold text-sm text-gray-200">创意写作</span>
+                        </div>
+                        <p class="text-xs text-gray-500 leading-relaxed">社交媒体文案、邮件回复、周报日报一键生成。</p>
+                    </div>
+                    <div class="bg-[#151518] p-5 rounded-2xl border border-white/5 shadow-xl hover:bg-[#1e1e20] transition-colors group">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors">
+                                <i class="fa-solid fa-image text-purple-400 text-lg"></i>
+                            </div>
+                            <span class="font-bold text-sm text-gray-200">文生图</span>
+                        </div>
+                        <p class="text-xs text-gray-500 leading-relaxed">集成豆包, 即梦，手机也能画大片，激发无限创意。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧文案 -->
+            <div class="w-full md:w-1/2 md:pl-10 text-center md:text-left">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                    不仅是聊天机器人<br>
+                    更是你的<span class="text-cyan-400">数字分身</span>
+                </h2>
+                <p class="text-gray-400 text-lg mb-10 leading-relaxed">
+                    Moco AI 深度整合各个大模型的能力。无需来回切换，一个界面享用世界级顶级模型能力。
+                    <br><br>
+                    设定不同的 <span class="text-white font-medium">Role（角色）</span>，让它变身你的私人教练、英语老师或心理咨询师。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="https://github.com/glovebx/moco-ai-client" class="px-8 py-3 rounded-lg bg-white text-black font-bold hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-github"></i> 访问 GitHub
+                    </a>
+                    <a href="#" class="px-8 py-3 rounded-lg border border-gray-700 text-white font-bold hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+                        探索高级玩法 <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-16 border-t border-white/10" id="download">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-purple-600 flex items-center justify-center shadow-lg shadow-purple-900/40">
+                    <i class="fa-solid fa-bolt text-white text-lg"></i>
+                </div>
+                <span class="font-bold text-3xl tracking-tight text-white">Moco AI</span>
+            </div>
+            <p class="text-gray-500 mb-10 max-w-md mx-auto leading-relaxed">
+                开源、隐私、强大。立即下载，体验未来的交互方式。<br>
+                Build with ❤️ by MetaERP.ai
+            </p>
+            <div class="flex justify-center gap-8 mb-12">
+                <a href="https://github.com/glovebx/moco-ai-client" class="text-gray-500 hover:text-white transition-colors text-2xl transform hover:scale-110 duration-200">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-[#1DA1F2] transition-colors text-2xl transform hover:scale-110 duration-200">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-[#5865F2] transition-colors text-2xl transform hover:scale-110 duration-200">
+                    <i class="fa-brands fa-discord"></i>
+                </a>
+            </div>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-xs text-gray-700 font-medium">
+                <span>&copy; 2024 MetaERP.ai Project. All rights reserved.</span>
+                <span class="hidden md:inline text-gray-800">|</span>
+                <a href="#" class="hover:text-gray-500 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-gray-500 transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

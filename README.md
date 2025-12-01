@@ -54,6 +54,9 @@ Your handy AI assistant
 # 2025.02.25
 1、Supports DeepSeek  
 
+<details>
+<summary>点击展开/折叠</summary>	
+
 # 2024.06.24
 1、Streaming output bug fix  
 
@@ -111,3 +114,4 @@ Your handy AI assistant
 
 # 2023.05.30
 1、Released alpha version
+</details>
